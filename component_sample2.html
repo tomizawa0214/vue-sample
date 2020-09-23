@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンポーネント</title>
+  </head>
+  <body>
+    <div id="app">
+      <my-component></my-component>
+      <my-component></my-component>
+      <my-component></my-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      Vue.component('my-component', {
+        // dataを関数にすることで別々の挙動になる
+        data() {
+          return {
+            number: 12
+          }
+        },
+        template: '<p> \
+        いいね({{ number }}) \
+        <button @click="increment">+1</button> \
+        </p>',
+        methods: {
+          increment() {
+            this.number += 1;
+          }
+        }
+      })
+
+      new Vue({
+        el: '#app',
+      })
+    </script>
+  </body>
+</html>
