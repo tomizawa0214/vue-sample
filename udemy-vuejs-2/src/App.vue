@@ -11,6 +11,7 @@ import LikeHeader from "./components/LikeHeader.vue";
 
 export default {
   components: {
+    // パスカルケース
     LikeHeader
   }
 }
