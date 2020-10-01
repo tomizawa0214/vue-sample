@@ -16,6 +16,7 @@ export default {
   },
   methods: {
     increment() {
+      // $emitはケバブケース
       this.$emit("my-click", this.totalNumber + 1);
     }
   }
