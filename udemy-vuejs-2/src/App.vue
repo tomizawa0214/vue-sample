@@ -2,6 +2,7 @@
   <div>
     <LikeHeader></LikeHeader>
     <h2>{{ number }}</h2>
+    <LikeNumber></LikeNumber>
     <!-- プロパティではケバブケース -->
     <LikeNumber :total-number="number"></LikeNumber>
   </div>

@@ -8,7 +8,13 @@
 <script>
 export default {
   // propsはJSではキャメルケース
-  props: ['totalNumber'],
+  props: {
+    totalNumber: {
+      // バリデーション設定でエラーに気づきやすくする
+      type: Number,
+      default: 10
+    }
+  },
   methods: {
     increment() {
       this.number += 1;
