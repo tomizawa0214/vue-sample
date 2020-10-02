@@ -1,5 +1,9 @@
 <template>
   <div>
+    <slot>
+      <h2>デフォルトのタイトル</h2>
+    </slot>
+    <hr>
     <slot></slot>
   </div>
 </template>
