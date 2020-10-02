@@ -1,10 +1,8 @@
 <template>
   <div>
-    <slot>
-      <h2>デフォルトのタイトル</h2>
-    </slot>
+    <slot name="title"></slot>
     <hr>
-    <slot></slot>
+    <slot name="number"></slot>
   </div>
 </template>
 
