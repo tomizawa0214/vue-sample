@@ -1,6 +1,7 @@
 <template>
   <div>
     <slot name="title"></slot>
+    <slot></slot>
     <hr>
     <slot name="number"></slot>
   </div>
