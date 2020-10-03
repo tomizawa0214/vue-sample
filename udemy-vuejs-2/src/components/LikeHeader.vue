@@ -1,9 +1,6 @@
 <template>
   <div>
-    <slot :user="user" text="text"></slot>
     <slot></slot>
-    <hr>
-    <slot name="number"></slot>
   </div>
 </template>
 
