@@ -1,15 +1,9 @@
 <template>
   <div>
-    <LikeHeader>
+    <LikeHeader v-slot="slotProps">
+      <p>{{ slotProps }}</p>
       <h2>みんさん</h2>
-      <template v-slot:title="slotProps">
-        <h2>こんにちは</h2>
-        <h2>{{ slotProps.user.firstName }}</h2>
-      </template>
       <h3>はじめまして</h3>
-      <template v-slot:number>
-        <p>{{ number }}</p>
-      </template>
       <p>よろしくお願いします</p>
     </LikeHeader>
     <!-- プロパティではケバブケース -->
