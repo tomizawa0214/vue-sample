@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot name="title"></slot>
+    <slot name="title" :user="user" text="text"></slot>
     <slot></slot>
     <hr>
     <slot name="number"></slot>
@@ -9,6 +9,13 @@
 
 <script>
 export default {
-  props: ["headerText"]
+  data() {
+    return {
+      user: {
+        firstName: "Jack",
+        lastName: "Donald"
+      }
+    }
+  }
 };
 </script> 
