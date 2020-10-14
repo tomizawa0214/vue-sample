@@ -11,7 +11,7 @@
 
 <script>
 import CountNumber from "./CountNumber.vue";
-import { gunmaNumber } from "/@gunmaNumber"; 
+import { gunmaNumber } from "@/gunmaNumber"; 
 
 export default {
   mixins: [gunmaNumber],

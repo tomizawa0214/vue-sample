@@ -12,6 +12,9 @@
 import { gunmaNumber } from "@/gunmaNumber";
 
 export default {
-  mixins: [gunmaNumber]
+  mixins: [gunmaNumber],
+  created() {
+    console.log("created in component");
+  }
 };
 </script>

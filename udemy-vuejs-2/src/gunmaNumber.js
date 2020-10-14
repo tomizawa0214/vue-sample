@@ -11,5 +11,8 @@ export const gunmaNumber = {
     lowerCase(value) {
       return value.toLowerCase();
     }
+  },
+  created() {
+    console.log("created in Mixin");
   }
 }
