@@ -1,8 +1,8 @@
 <template>
   <div>
     <p v-border:solid.round.shadow="{width: '3px', color: 'brown'}">Home</p>
-    <h2>{{ title | upperCase }}</h2>
-    <p>{{ subTitle | upperCase }}</p>
+    <h2>{{ title | lowerCase | upperCase }}</h2>
+    <p>{{ subTitle | upperCase | lowerCase }}</p>
   </div>
 </template>
 
@@ -14,6 +14,11 @@ export default {
       title: "Welcome to Tokyo",
       subTitle: "Nakanojo is a great city."
     };
+  },
+  filters: {
+    lowerCase(value) {
+      return value.toLowerCase();
+    }
   },
   directives: {
     border(el, binding) {
