@@ -3,12 +3,23 @@
     <!-- <button @click="myAnimation = 'slide'">Slide</button>
     <button @click="myAnimation = 'fade'">Fade</button>
     <p>{{ myAnimation }}</p> -->
-    <!-- <button @click="show = !show">切り替え</button> -->
-    <button @click="myComponent = 'ComponentA'">ComponentA</button>
+    <button @click="show = !show">切り替え</button>
+    <transition
+      :css="false"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @leave="leave"
+    >
+      <div
+        class="circle"
+        v-if="show"
+      ></div>
+    </transition>
+    <!-- <button @click="myComponent = 'ComponentA'">ComponentA</button>
     <button @click="myComponent = 'ComponentB'">ComponentB</button>
     <transition name="fade" mode="out-in">
       <component :is="myComponent"></component>
-    </transition>
+    </transition> -->
     <!-- <transition name="fade" mode="out-in">
       <p v-if="show" key="bye">さよなら</p>
       <p v-else key="hello">こんにちは</p>
@@ -23,24 +34,61 @@
 </template>
 
 <script>
-import ComponentA from "./components/ComponentA.vue";
-import ComponentB from "./components/ComponentB.vue";
+// import ComponentA from "./components/ComponentA.vue";
+// import ComponentB from "./components/ComponentB.vue";
 
 export default {
-  components: {
-    ComponentA,
-    ComponentB
-  },
+  // components: {
+  //   ComponentA,
+  //   ComponentB
+  // },
   data() {
     return {
       show: true,
-      myComponent: "ComponentA"
+      // myComponent: "ComponentA"
     };
+  },
+  methods: {
+    beforeEnter(el) {
+      // 現れる前
+      el.style.transform = 'scale(0)';
+    },
+    enter(el, done) {
+      // 現れる時
+      let scale = 0;
+      const interval = setInterval(() => {
+        el.style.transform = `scale(${scale})`;
+        scale += .1
+        if ( scale > 1 ) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20)
+    },
+    leave(el, done) {
+      // 消える時
+      let scale = 1;
+      const interval = setInterval(() => {
+        el.style.transform = `scale(${scale})`;
+        scale -= .1
+        if ( scale < 0 ) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20)
+    }
   }
 };
 </script>
 
 <style scoped>
+.circle {
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  border-radius: 50%;
+  background: deeppink;
+}
 /* transitionのクラス */
 .fade-enter {
   /* 現れる時の最初の状態 */
