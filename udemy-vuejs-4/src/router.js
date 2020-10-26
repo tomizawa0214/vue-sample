@@ -22,7 +22,8 @@ export default new Router({
           component: UsersPosts
         },
         { path: "profile",
-          component: UsersProfile
+          component: UsersProfile,
+          name: "users-id-profile"
         }
       ]
     }
