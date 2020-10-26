@@ -9,8 +9,8 @@
 export default {
   methods: {
     toUsers() {
-      this.$router.push('users');
+      this.$router.push({ path: "users" });
     }
   }
-}
+};
 </script>
