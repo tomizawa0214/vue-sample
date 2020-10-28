@@ -17,6 +17,28 @@
 
 <script>
 export default {
-  props: ["id"]
-};
+  props: ["id"],
+  // コンポーネントが表示される時に実行される
+  beforeRouteEnter(to, from, next) {
+    const isEnter = window.confirm("Welcome To Page");
+    if (isEnter) {
+      next();
+    } else {
+      next(false);
+    }
+  },
+  // ネストされたroute-view等に実行される
+  beforeRouteUpdate(to, from, next) {
+    next()
+  },
+  // コンポーネントから離れる時に実行される
+  beforeRouteLeave(to, from, next) {
+    const isLeave = window.confirm("本当にこのページを離れますか？");
+    if (isLeave) {
+      next();
+    } else {
+      next(false);
+    }
+  }
+}
 </script>
